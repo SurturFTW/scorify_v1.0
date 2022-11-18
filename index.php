@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Scorify</title>
-    <meta property="og:title" content="Scorfiy" />
+    <meta property="og:title" content="Scorify" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -30,17 +30,12 @@
     </style>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
       data-tag="font"
     />
     <!--This is the head section-->
@@ -53,21 +48,27 @@
 
       <div class="home-container">
         <header data-role="Header" class="home-header">
-          <p id="logo" class="home-text">SCORIFY</p>
+          <p id="logo" class="home-text">
+            <a href="./index.php"> SCORIFY </a></p>
           <div class="home-container1">
             <div class="home-nav">
               <nav
                 class="navigation-links-nav navigation-links-root-class-name10"
               >
-                <span class="navigation-links-text"><span>Home</span></span>
-                <span class="navigation-links-text1"><span>About</span></span>
-                <span class="navigation-links-text2"><span>Contact</span></span>
+                <span class="navigation-links-text">
+                  <a href="./index.php"> Home </a></span>
+                <span class="navigation-links-text1">
+                  <a href="./src/features.php"> About </a></span>
+                <span class="navigation-links-text2">
+                  <a href="./src/contact.php"> Contact </a></span>
               </nav>
             </div>
           </div>
           <div class="home-btn-group">
-            <button id="login" class="home-login button">Login</button>
-            <button id="register" class="home-register button">Register</button>
+            <button id="login" class="home-login button">
+              <a href="./src/login.php"> Login </a></button>
+            <button id="register" class="home-register button">
+              <a href="./src/register.php"> Register </a></button>
           </div>
           <div data-role="BurgerMenu" class="home-burger-menu">
             <svg viewBox="0 0 1024 1024" class="home-icon">
@@ -79,32 +80,45 @@
           <div data-role="MobileMenu" class="home-mobile-menu">
             <div class="home-nav1">
               <div class="home-container2">
-                <p id="logo" class="home-text01">SCORIFY</p>
+                <p id="logo" class="home-text01">
+                  <a href="./index.php"> SCORIFY </a></p>
+                <button id="login" class="home-login1 button">
+                  <a href="./src/login.php"> Login </a></button>
+                <button id="register" class="home-register1 button">
+                  <a href="./src/register.php"> Register </a>
+                </button>
                 <svg viewBox="0 0 1024 1024" class="home-icon2">
                   <path
                     d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
                   ></path>
                 </svg>
-                <div data-role="CloseMobileMenu" class="home-menu-close"></div>
               </div>
-              <nav
-                class="navigation-links-nav navigation-links-root-class-name11"
-              >
-                <span class="navigation-links-text"><span>Home</span></span>
-                <span class="navigation-links-text1"><span>About</span></span>
-                <span class="navigation-links-text2"><span>Contact</span></span>
-              </nav>
+              <div class="home-container3">
+                <nav
+                  class="navigation-links-nav navigation-links-root-class-name11"
+                >
+                  <span class="navigation-links-text">
+                  <a href="./index.php"> Home </a></span>
+                  <span class="navigation-links-text1">
+                    <a href="./src/about.php"> About </a></span>
+                  <span class="navigation-links-text2">
+                    Contact
+                  </span>
+                </nav>
+              </div>
             </div>
             <div class="home-icon-group"></div>
           </div>
         </header>
         <div class="home-hero">
-          <div class="home-container3">
-            <h1 class="home-text02">Let’s keep things organised</h1>
+          <div class="home-container4">
+            <h1 class="home-text02">Let's keep things organised</h1>
             <h2 class="home-text03">Magnificent things are very simple.</h2>
             <div class="home-btn-group1">
-              <button class="home-button button">Get Started</button>
-              <button class="home-button1 button">Learn More</button>
+              <button class="home-button button">
+                <a href="./src/register.php"> Get Started </a></button>
+              <button class="home-button1 button">
+              <a href="./src/about.php"> Learn More </a></button>
             </div>
             <span class="home-text04">
               <span>
@@ -124,23 +138,18 @@
           </div>
           <img
             alt="image"
-            src="https://thesportsgrail.com/wp-content/uploads/2022/07/a3730a9fb7867d4e3105087edfa39d35.jpg"
+            src="./imgs/dhoni.jpg"
             loading="eager"
             class="home-image"
           />
         </div>
         <div class="home-banner">
-          <img
-            alt="image"
-            src="./imgs/meme1.jpeg"
-            class="home-image1"
-          />
-          <div class="home-container4">
+          <div class="home-container5">
             <h1 class="home-text12">Be the first to get the latest features</h1>
             <span class="home-text13">
               Enter your email below to get alert of updates on our website
             </span>
-            <div class="home-container5">
+            <div class="home-container6">
               <input
                 type="text"
                 placeholder="Email here..."
@@ -149,9 +158,15 @@
               <button class="home-button2 button">Subscribe</button>
             </div>
           </div>
+          <img
+            alt="image"
+            src="./imgs/meme1.jpeg"
+            class="home-image1"
+          />
         </div>
         <footer class="home-footer">
-          <p id="logo" class="home-text14">SCORIFY</p>
+          <p id="logo" class="home-text14">
+            <a href="./index.php"> SCORIFY </a></p>
           <span class="home-text15">
             © 2022 Pushkar Sane, All Rights Reserved.
           </span>
