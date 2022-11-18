@@ -76,18 +76,18 @@
   display: flex !important;
   transform: none !important;
 }
-.Content {
-  font-size: 16px;
-  font-family: Inter;
-  font-weight: 400;
-  line-height: 1.15;
-  text-transform: none;
-  text-decoration: none;
-}
 .Heading {
   font-size: 32px;
   font-family: Inter;
   font-weight: 700;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+.Content {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
   line-height: 1.15;
   text-transform: none;
   text-decoration: none;

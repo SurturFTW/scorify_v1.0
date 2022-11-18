@@ -44,6 +44,7 @@
 
 
 
+
 @media(max-width: 767px) {
   .navigation-links-nav {
     align-items: flex-start;
@@ -59,6 +60,14 @@
   .navigation-links-text2 {
     margin-left: 0;
     margin-bottom: var(--dl-space-space-unit);
+  }
+  .navigation-links-root-class-name10 {
+    display: none;
+  }
+}
+@media(max-width: 479px) {
+  .navigation-links-root-class-name10 {
+    display: none;
   }
 }
 
@@ -81,24 +90,16 @@
   padding-bottom: var(--dl-space-space-twounits);
   justify-content: space-between;
 }
+.home-nav {
+  display: flex;
+}
 .home-text {
-  font-size: 24px;
+  font-size: 22px;
   font-style: normal;
   font-family: Fira Mono;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-}
-.home-container1 {
-  flex: 0 0 auto;
-  width: auto;
-  height: auto;
-  display: flex;
-  align-items: space-between;
-  flex-direction: column;
-}
-.home-nav {
-  display: flex;
 }
 .home-btn-group {
   display: flex;
@@ -107,7 +108,6 @@
   justify-content: space-between;
 }
 .home-login {
-  font-size: 16px;
   font-style: normal;
   transition: 0.3s;
   font-family: Fira Mono;
@@ -119,6 +119,7 @@
   transform: scale(1.02);
 }
 .home-register {
+  font-size: 16px;
   font-style: normal;
   transition: 0.3s;
   font-family: Fira Mono;
@@ -149,11 +150,12 @@
   background-color: #fff;
 }
 .home-nav1 {
+  height: 123px;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
 }
-.home-container2 {
+.home-container1 {
   width: 100%;
   display: flex;
   align-items: center;
@@ -161,49 +163,46 @@
   justify-content: space-between;
 }
 .home-text01 {
-  font-size: 24px;
+  font-size: 22px;
   font-style: normal;
   font-family: Fira Mono;
   font-weight: 700;
   letter-spacing: 2px;
-  text-transform: uppercase;
 }
-.home-login1 {
-  font-size: 16px;
-  font-style: normal;
-  transition: 0.3s;
-  font-family: Fira Mono;
-  font-weight: 500;
-  border-width: 0px;
-  margin-right: var(--dl-space-space-twounits);
+.home-menu-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.home-login1:hover {
-  transform: scale(1.02);
-}
-.home-register1 {
-  font-style: normal;
-  transition: 0.3s;
-  font-family: Fira Mono;
-  font-weight: 500;
-  border-radius: 20px;
-}
-.home-register1:hover {
-  transform: scale(1.02);
-}
-.home-icon2 {
+.home-icon02 {
   width: var(--dl-size-size-xsmall);
   height: var(--dl-size-size-xsmall);
 }
-.home-container3 {
+.home-container2 {
   flex: 0 0 auto;
   width: auto;
-  height: auto;
+  height: 40px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.home-icon-group {
-  border: 2px dashed rgba(120, 120, 120, 0.4);
+.home-container3 {
+  flex: 0 0 auto;
+  width: auto;
+  height: 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.home-icon04 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+}
+.home-icon06 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
 }
 .home-hero {
   width: 100%;
@@ -220,14 +219,13 @@
   margin-left: var(--dl-space-space-twounits);
   flex-direction: column;
 }
-.home-text02 {
-  font-size: 2.5rem;
+.home-text06 {
+  font-size: 2rem;
   font-style: normal;
   font-family: Fira Mono;
   font-weight: 500;
 }
-.home-text03 {
-  font-size: 1.5rem;
+.home-text07 {
   font-style: normal;
   margin-top: var(--dl-space-space-unit);
   font-family: Fira Mono;
@@ -241,43 +239,41 @@
   margin-bottom: var(--dl-space-space-unit);
   flex-direction: row;
 }
-.home-button {
+.home-button2 {
   color: var(--dl-color-gray-white);
-  font-style: normal;
   transition: 0.3s;
-  font-family: Fira Mono;
-  font-weight: 500;
   padding-top: var(--dl-space-space-unit);
   padding-left: var(--dl-space-space-twounits);
   padding-right: var(--dl-space-space-twounits);
   padding-bottom: var(--dl-space-space-unit);
   background-color: var(--dl-color-gray-black);
 }
-.home-button:hover {
+.home-button2:hover {
   transform: scale(1.02);
 }
-.home-button1 {
-  font-size: 18px;
-  font-style: normal;
+.home-button3 {
   transition: 0.3s;
-  font-family: Fira Mono;
-  font-weight: 500;
   margin-left: var(--dl-space-space-unit);
   padding-top: var(--dl-space-space-unit);
   padding-left: var(--dl-space-space-twounits);
   padding-right: var(--dl-space-space-twounits);
   padding-bottom: var(--dl-space-space-unit);
 }
-.home-button1:hover {
+.home-button3:hover {
   transform: scale(1.02);
 }
-.home-text04 {
+.home-text08 {
   font-style: normal;
   margin-top: var(--dl-space-space-twounits);
   font-family: Fira Mono;
   font-weight: 500;
   margin-bottom: var(--dl-space-space-twounits);
   padding-right: var(--dl-space-space-threeunits);
+}
+.home-text10 {
+  font-style: normal;
+  font-family: Fira Mono;
+  font-weight: 500;
 }
 .home-image {
   width: 25rem;
@@ -301,14 +297,15 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.home-text12 {
-  font-size: 24px;
+.home-text13 {
+  font-size: 1.5em;
+  font-style: normal;
   text-align: center;
   font-family: Fira Mono;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: var(--dl-space-space-unit);
 }
-.home-text13 {
+.home-text15 {
   font-size: 16px;
   font-style: normal;
   font-family: Fira Mono;
@@ -331,7 +328,7 @@
   border-color: var(--dl-color-gray-500);
   border-radius: var(--dl-radius-radius-radius4);
 }
-.home-button2 {
+.home-button4 {
   font-size: 0.75rem;
   font-style: normal;
   transition: 0.3s;
@@ -339,14 +336,15 @@
   font-weight: 500;
   margin-left: var(--dl-space-space-unit);
   border-color: var(--dl-color-gray-500);
+  border-radius: 20px;
 }
-.home-button2:hover {
+.home-button4:hover {
   color: var(--dl-color-gray-white);
   background-color: var(--dl-color-gray-black);
 }
 .home-image1 {
   width: 388px;
-  height: 291px;
+  height: 300px;
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -361,13 +359,19 @@
   padding-bottom: var(--dl-space-space-twounits);
   justify-content: space-between;
 }
-.home-text14 {
-  font-size: 24px;
+.home-text16 {
+  font-size: 22px;
   font-style: normal;
   font-family: Fira Mono;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
+}
+.home-text17 {
+  font-size: 18px;
+  font-style: normal;
+  font-family: Fira Mono;
+  font-weight: 500;
 }
 .home-icon-group1 {
   display: flex;
@@ -378,7 +382,7 @@
 .home-link {
   display: contents;
 }
-.home-icon4 {
+.home-icon08 {
   width: var(--dl-size-size-xsmall);
   height: var(--dl-size-size-xsmall);
   margin-right: var(--dl-space-space-twounits);
@@ -387,7 +391,7 @@
 .home-link1 {
   display: contents;
 }
-.home-icon6 {
+.home-icon10 {
   width: var(--dl-size-size-xsmall);
   height: var(--dl-size-size-xsmall);
   margin-right: var(--dl-space-space-twounits);
@@ -404,13 +408,13 @@
     margin-right: 0px;
     margin-bottom: var(--dl-space-space-twounits);
   }
-  .home-text02 {
+  .home-text06 {
     text-align: center;
   }
-  .home-text03 {
+  .home-text07 {
     text-align: center;
   }
-  .home-text04 {
+  .home-text08 {
     text-align: center;
     padding-left: var(--dl-space-space-fourunits);
   }
@@ -418,7 +422,6 @@
     order: 2;
   }
   .home-banner {
-    height: 549px;
     flex-direction: column;
   }
   .home-container5 {
@@ -426,7 +429,7 @@
     margin-right: 0px;
     margin-bottom: var(--dl-space-space-threeunits);
   }
-  .home-text13 {
+  .home-text15 {
     text-align: center;
     margin-left: var(--dl-space-space-threeunits);
   }
@@ -434,7 +437,7 @@
     justify-content: center;
   }
   .home-image1 {
-    width: 387px;
+    width: 390px;
     height: var(--dl-size-size-xxlarge);
   }
 }
@@ -442,9 +445,6 @@
   .home-header {
     padding-left: var(--dl-space-space-twounits);
     padding-right: var(--dl-space-space-twounits);
-  }
-  .home-nav {
-    display: none;
   }
   .home-btn-group {
     display: none;
@@ -457,8 +457,15 @@
   .home-mobile-menu {
     display: none;
   }
+  .home-text01 {
+    font-size: 22px;
+    font-style: normal;
+    font-family: Fira Mono;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
   .home-hero {
-    display: flex;
     padding-left: var(--dl-space-space-twounits);
     padding-right: var(--dl-space-space-twounits);
   }
@@ -469,18 +476,15 @@
     padding-left: var(--dl-space-space-twounits);
     padding-right: var(--dl-space-space-twounits);
   }
-  .home-text13 {
+  .home-text15 {
     margin-left: var(--dl-space-space-unit);
     margin-right: var(--dl-space-space-unit);
-  }
-  .home-image1 {
-    width: 378px;
   }
   .home-footer {
     padding-left: var(--dl-space-space-twounits);
     padding-right: var(--dl-space-space-twounits);
   }
-  .home-text15 {
+  .home-text17 {
     text-align: center;
     margin-left: var(--dl-space-space-unit);
     margin-right: var(--dl-space-space-unit);
@@ -491,7 +495,29 @@
     padding: var(--dl-space-space-unit);
   }
   .home-mobile-menu {
+    display: none;
     padding: 16px;
+  }
+  .home-nav1 {
+    height: 245px;
+  }
+  .home-button {
+    width: 100%;
+    height: 37px;
+    font-size: 18px;
+    font-family: Fira Mono;
+    border-radius: 20px;
+  }
+  .home-text02 {
+    font-style: normal;
+    font-weight: 500;
+  }
+  .home-button1 {
+    font-size: 18px;
+    font-style: normal;
+    font-family: Fira Mono;
+    font-weight: 500;
+    border-radius: 20px;
   }
   .home-hero {
     padding-top: var(--dl-space-space-twounits);
@@ -505,11 +531,11 @@
   .home-btn-group1 {
     flex-direction: column;
   }
-  .home-button1 {
+  .home-button3 {
     margin-top: var(--dl-space-space-unit);
     margin-left: 0px;
   }
-  .home-text04 {
+  .home-text08 {
     padding-left: var(--dl-space-space-unit);
     padding-right: var(--dl-space-space-unit);
   }
@@ -523,19 +549,19 @@
     align-items: center;
     flex-direction: column;
   }
-  .home-button2 {
+  .home-button4 {
     margin-top: var(--dl-space-space-unit);
     margin-left: 0px;
   }
   .home-image1 {
-    width: 262px;
+    width: 253px;
     height: var(--dl-size-size-xlarge);
   }
   .home-footer {
     padding: var(--dl-space-space-unit);
     flex-direction: column;
   }
-  .home-text15 {
+  .home-text17 {
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: var(--dl-space-space-unit);
