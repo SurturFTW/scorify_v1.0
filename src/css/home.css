@@ -412,7 +412,7 @@
     justify-content: center;
   }
   .home-image1 {
-    width: var(--dl-size-size-xxlarge);
+    width: 387px;
     height: var(--dl-size-size-xxlarge);
   }
 }
@@ -446,6 +446,9 @@
   .home-text13 {
     margin-left: var(--dl-space-space-unit);
     margin-right: var(--dl-space-space-unit);
+  }
+  .home-image1 {
+    width: 378px;
   }
   .home-footer {
     padding-left: var(--dl-space-space-twounits);
@@ -499,7 +502,7 @@
     margin-left: 0px;
   }
   .home-image1 {
-    width: var(--dl-size-size-xlarge);
+    width: 262px;
     height: var(--dl-size-size-xlarge);
   }
   .home-footer {
