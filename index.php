@@ -3,6 +3,7 @@
   <head>
     <title>Scorify</title>
     <meta property="og:title" content="Scorify" />
+    <link rel="icon" type="image/x-icon" href="../imgs/vector-logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -58,7 +59,7 @@
                 <span class="navigation-links-text">
                   <a href="./index.php"> Home </a></span>
                 <span class="navigation-links-text1">
-                  <a href="./src/features.php"> About </a></span>
+                  <a href="./src/about.php"> About </a></span>
                 <span class="navigation-links-text2">
                   <a href="./src/contact.php"> Contact </a></span>
               </nav>
@@ -102,8 +103,7 @@
                   <span class="navigation-links-text1">
                     <a href="./src/about.php"> About </a></span>
                   <span class="navigation-links-text2">
-                    Contact
-                  </span>
+                    <a href="./src/contact.php"> Contact </a></span>
                 </nav>
               </div>
             </div>
@@ -132,8 +132,6 @@
               </span>
               <br />
               <br />
-              <span></span>
-              <span></span>
             </span>
           </div>
           <img
@@ -143,19 +141,58 @@
             class="home-image"
           />
         </div>
+
         <div class="home-banner">
           <div class="home-container5">
             <h1 class="home-text12">Be the first to get the latest features</h1>
             <span class="home-text13">
               Enter your email below to get alert of updates on our website
-            </span>
+            </span> <br>
+
+            <form action="index.php" method="POST">
+              <?php
+                $email = "";
+                if(isset($_POST['emailclick'])){
+                  $email = $_POST['email'];
+
+                  if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+                    $subject = "Thanks For Subscribing 🤘 - Scorify";
+                    $message = "Thankyou for subscribing to Scorify. You'll always receive latest updates from us.";
+                    $sender = "From: flicks4186@gmail.com";
+
+                    if(mail($email, $subject, $message, $sender)){
+                      ?>
+                      <div id="subscribed"> ✅ Subscribed Successfully! </div>
+                      <?php 
+                        $email = "";
+                      
+                    } else{
+                      ?>
+                      <div id="not-sub"> ❌ Failed to send mail. </div>
+                      <?php
+                    }
+                  
+                  } else{
+                      ?>
+                      <div id="not-sub">
+                        ❌ <?php echo $email?> is not a valid email!
+                      </div>
+                      <?php 
+                  }
+                }
+              ?>
+              
             <div class="home-container6">
               <input
-                type="text"
+                type="email"
                 placeholder="Email here..."
                 class="home-textinput input"
+                id="emailval" 
+                name="email"
+                required
+                value=" <?php echo $email?>"
               />
-              <button class="home-button2 button">Subscribe</button>
+              <button class="home-button2 button" name="emailclick">Subscribe</button>
             </div>
           </div>
           <img
@@ -163,6 +200,7 @@
             src="./imgs/meme1.jpeg"
             class="home-image1"
           />
+          </form>
         </div>
         <footer class="home-footer">
           <p id="logo" class="home-text14">
