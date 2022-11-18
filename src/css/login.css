@@ -141,6 +141,7 @@
 }
 
 .login-nav1 {
+  height: 167px;
   align-items: flex-start;
   flex-direction: column;
 }
@@ -180,6 +181,9 @@
 .login-button1:hover {
   transform: scale(1.02);
 }
+.login-text3:hover {
+  transform: scale(1.02);
+}
 .login-icon04 {
   width: var(--dl-size-size-xsmall);
   height: var(--dl-size-size-xsmall);
@@ -203,7 +207,7 @@
   padding-bottom: var(--dl-space-space-twounits);
   justify-content: space-between;
 }
-.login-text2 {
+.login-text5 {
   font-size: 24px;
   font-style: normal;
   font-family: Fira Mono;
@@ -211,7 +215,7 @@
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-.login-text3 {
+.login-text6 {
   font-size: 17px;
   font-style: normal;
   font-family: Fira Mono;
@@ -248,8 +252,18 @@
     font-family: Fira Mono;
     font-weight: 500;
   }
+  .login-burger-menu {
+    display: none;
+  }
   .login-icon {
     display: flex;
+  }
+  .login-mobile-menu {
+    width: 943px;
+    display: none;
+  }
+  .login-nav1 {
+    height: 178px;
   }
 }
 @media(max-width: 767px) {
@@ -275,7 +289,9 @@
     justify-content: center;
   }
   .login-mobile-menu {
+    width: 750px;
     display: none;
+    margin-right: 0px;
   }
   .login-text1 {
     font-size: 22px;
@@ -289,11 +305,17 @@
     font-weight: 500;
     border-radius: 20px;
   }
+  .login-text3 {
+    font-style: normal;
+    font-family: Fira Mono;
+    font-weight: 500;
+    border-radius: 20px;
+  }
   .login-footer {
     padding-left: var(--dl-space-space-twounits);
     padding-right: var(--dl-space-space-twounits);
   }
-  .login-text3 {
+  .login-text6 {
     text-align: center;
     margin-left: var(--dl-space-space-unit);
     margin-right: var(--dl-space-space-unit);
@@ -304,6 +326,7 @@
     padding: var(--dl-space-space-unit);
   }
   .login-mobile-menu {
+    width: 479px;
     display: none;
     padding: 16px;
   }
@@ -311,9 +334,15 @@
     font-size: 18px;
     font-style: normal;
     font-family: Fira Mono;
-    font-weight: 500;
+    font-weight: 700;
   }
   .login-button1 {
+    font-style: normal;
+    font-family: Fira Mono;
+    font-weight: 500;
+    border-radius: 20px;
+  }
+  .login-text3 {
     font-style: normal;
     font-family: Fira Mono;
     font-weight: 500;
@@ -323,7 +352,7 @@
     padding: var(--dl-space-space-unit);
     flex-direction: column;
   }
-  .login-text3 {
+  .login-text6 {
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: var(--dl-space-space-unit);
