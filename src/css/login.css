@@ -1,0 +1,331 @@
+.navigation-links2-nav {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.navigation-links2-text {
+  font-size: 18px;
+  font-style: normal;
+  transition: 0.3s;
+  font-family: Fira Mono;
+  font-weight: 500;
+}
+.navigation-links2-text:hover {
+  transform: scale(1.02);
+}
+.navigation-links2-text1 {
+  font-size: 18px;
+  font-style: normal;
+  transition: 0.3s;
+  font-family: Fira Mono;
+  font-weight: 500;
+  margin-left: var(--dl-space-space-twounits);
+}
+.navigation-links2-text1:hover {
+  transform: scale(1.02);
+}
+.navigation-links2-text2 {
+  font-size: 18px;
+  font-style: normal;
+  transition: 0.3s;
+  font-family: Fira Mono;
+  font-weight: 500;
+  margin-left: var(--dl-space-space-twounits);
+}
+.navigation-links2-text2:hover {
+  transform: scale(1.02);
+}
+
+
+
+
+
+
+
+
+@media(max-width: 767px) {
+  .navigation-links2-nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .navigation-links2-text {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .navigation-links2-text1 {
+    margin-left: 0;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .navigation-links2-text2 {
+    margin-left: 0;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+}
+
+.login-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.login-header {
+  width: 100%;
+  display: flex;
+  max-width: var(--dl-size-size-maxwidth);
+  align-items: center;
+  padding-top: var(--dl-space-space-twounits);
+  padding-left: var(--dl-space-space-threeunits);
+  padding-right: var(--dl-space-space-threeunits);
+  padding-bottom: var(--dl-space-space-twounits);
+  justify-content: space-between;
+}
+.login-text {
+  font-size: 24px;
+  font-style: normal;
+  font-family: Fira Mono;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.login-container1 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.login-nav {
+  display: flex;
+  align-items: center;
+  padding-left: var(--dl-space-space-twounits);
+  flex-direction: row;
+}
+.login-btn-group {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.login-button {
+  font-size: 18px;
+  font-style: normal;
+  transition: 0.3s;
+  font-family: Fira Mono;
+  font-weight: 500;
+  border-radius: 20px;
+}
+.login-button:hover {
+  transform: scale(1.02);
+}
+.login-burger-menu {
+  display: none;
+}
+.login-icon {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  display: none;
+}
+.login-mobile-menu {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  padding: 32px;
+  z-index: 100;
+  position: absolute;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.login-nav1 {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.login-container2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-threeunits);
+  justify-content: space-between;
+}
+.login-close-mobile-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-text1 {
+  font-size: 22px;
+  font-style: normal;
+  font-family: Fira Mono;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.login-icon02 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+.login-button1 {
+  font-size: 18px;
+  font-style: normal;
+  transition: 0.3s;
+  font-family: Fira Mono;
+  font-weight: 500;
+  border-radius: 20px;
+}
+.login-button1:hover {
+  transform: scale(1.02);
+}
+.login-icon04 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.login-icon06 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.login-footer {
+  width: 100%;
+  display: flex;
+  max-width: var(--dl-size-size-maxwidth);
+  align-items: center;
+  padding-top: var(--dl-space-space-twounits);
+  padding-left: var(--dl-space-space-threeunits);
+  padding-right: var(--dl-space-space-threeunits);
+  padding-bottom: var(--dl-space-space-twounits);
+  justify-content: space-between;
+}
+.login-text2 {
+  font-size: 24px;
+  font-style: normal;
+  font-family: Fira Mono;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.login-text3 {
+  font-size: 17px;
+  font-style: normal;
+  font-family: Fira Mono;
+  font-weight: 500;
+}
+.login-icon-group1 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.login-link2 {
+  display: contents;
+}
+.login-icon08 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.login-link3 {
+  display: contents;
+}
+.login-icon10 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+@media(max-width: 991px) {
+  .login-button {
+    font-size: 18px;
+    font-style: normal;
+    font-family: Fira Mono;
+    font-weight: 500;
+  }
+  .login-icon {
+    display: flex;
+  }
+}
+@media(max-width: 767px) {
+  .login-header {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .login-nav {
+    display: none;
+  }
+  .login-btn-group {
+    display: none;
+  }
+  .login-button {
+    font-size: 18px;
+    font-style: normal;
+    font-family: Fira Mono;
+    font-weight: 500;
+  }
+  .login-burger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-mobile-menu {
+    display: none;
+  }
+  .login-text1 {
+    font-size: 22px;
+    font-style: normal;
+    font-family: Fira Mono;
+    font-weight: 500;
+  }
+  .login-button1 {
+    font-style: normal;
+    font-family: Fira Mono;
+    font-weight: 500;
+    border-radius: 20px;
+  }
+  .login-footer {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .login-text3 {
+    text-align: center;
+    margin-left: var(--dl-space-space-unit);
+    margin-right: var(--dl-space-space-unit);
+  }
+}
+@media(max-width: 479px) {
+  .login-header {
+    padding: var(--dl-space-space-unit);
+  }
+  .login-mobile-menu {
+    display: none;
+    padding: 16px;
+  }
+  .login-text1 {
+    font-size: 18px;
+    font-style: normal;
+    font-family: Fira Mono;
+    font-weight: 500;
+  }
+  .login-button1 {
+    font-style: normal;
+    font-family: Fira Mono;
+    font-weight: 500;
+    border-radius: 20px;
+  }
+  .login-footer {
+    padding: var(--dl-space-space-unit);
+    flex-direction: column;
+  }
+  .login-text3 {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+}
