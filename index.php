@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>scorify</title>
-    <meta property="og:title" content="scorify" />
+    <title>Scorify</title>
+    <link rel="icon" type="image/x-icon" href="./imgs/vector-logo.png">
+    <meta property="og:title" content="Scorify" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -12,7 +13,7 @@
     </style>
     <style data-tag="default-style-sheet">
       html {
-        font-family: Inter;
+        font-family: Fira Mono;
         font-size: 16px;
       }
 
