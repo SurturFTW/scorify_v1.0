@@ -1,3 +1,51 @@
+<?php 
+ob_start();
+include("../config/connect.php");
+$status = get_con();
+
+session_start();
+$status = session_status(); //1st measure
+if ($status == PHP_SESSION_ACTIVE) {
+    //There is  active session
+    session_destroy();
+}
+
+// if session is already running, it destroys previous session 
+// and starts a new if redirected to this page
+session_start();
+
+if (isset($_POST['login'])) {
+  $username =  $_POST['username'];
+  $password = $_POST['pass'];
+
+  $con = get_con();
+  $sql = "SELECT * FROM `members` WHERE uname = '$username' AND pass = '$password';";
+
+  $result = mysqli_query($con, $sql);
+  $result_user_type = mysqli_fetch_array($result);
+  $row = mysqli_num_rows($result);
+
+  if ($username != $password) {
+    echo "<script>alert('Wrong Password or Username');</script>";
+  } 
+  else if($username == $password) {
+    header("Location:./dashboard.html");
+  }
+  else{
+    header("Location:../index.php");
+    mysqli_close($con);
+  }
+  // close connection
+  mysqli_close($con);
+  } 
+  // login block ends here  
+  // for cheching 
+  // echo $status;
+  ob_end_flush();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +61,7 @@
     </style>
     <style data-tag="default-style-sheet">
       html {
-        font-family: Inter;
+        font-family: Fira Mono;
         font-size: 16px;
       }
 
@@ -29,6 +77,10 @@
 
       }
     </style>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
@@ -131,6 +183,37 @@
             </div>
           </div>
         </header>
+
+        <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Login</span>
+
+                <form method="POST">
+                    <div class="input-field">
+                        <input type="text" id="username" placeholder="Enter your username" required="">
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" id="pass" placeholder="Enter your password" required="">
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="Login" class="loginbutton" name="login" id="submit">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Not a member?
+                        <a href="./register.php" class="text signup-link">Register Now</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
         <footer class="home-footer">
           <span class="home-text5"> <a href="../index.php"> Scorify </a></span>
           <span class="home-text6">
@@ -169,5 +252,6 @@
       data-section-id="header"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
+    <script src="./js/login.js"></script>
   </body>
 </html>
