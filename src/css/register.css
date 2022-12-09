@@ -1,0 +1,125 @@
+.container{
+    position: relative;
+    width: 120%;
+    padding: 25px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 10px auto 20px;
+    border-top: 5px solid black;
+  }
+  
+.container .forms{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 200%;
+    transition: height 0.2s ease;
+}
+  
+.container .form{
+    width: 50%;
+    padding: 55px;
+    background-color: #fff;
+}
+  
+.container .form .title{
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+}
+  
+.form .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color: black;
+    border-radius: 25px;
+}
+  
+.form .input-field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+  
+.input-field input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+  
+.input-field input:is(:focus){
+    border-bottom-color: black;
+}
+  
+.input-field i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+    transition: all 0.2s ease;
+}
+  
+.input-field input:is(:focus) ~ i{
+    color: black;
+}
+  
+.input-field i.icon{
+    left: 0;
+}
+  
+.input-field i.showHidePw{
+    right: 0;
+    cursor: pointer;
+    padding: 5px;
+}
+  
+.form .text{
+    color: #333;
+    font-size: 16px;
+}
+  
+.form a.text{
+    color: rebeccapurple;
+    text-decoration: none;
+}
+.form a:hover{
+    text-decoration: underline;
+}
+  
+.form .subbutton{
+    background: white;
+    font-size: 18px;
+    font-style: normal;
+    transition: 0.3s;
+    font-family: Fira Mono;
+    font-weight: 800;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 35px;
+    padding: 10px;
+}
+  
+.subbutton:hover{
+    transform: scale(1.02);
+}
+  
+.form .login-signup{
+    margin-top: 30px;
+    text-align: center;
+}
