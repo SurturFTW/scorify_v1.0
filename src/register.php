@@ -1,8 +1,62 @@
+<?php
+include("../config/connect.php");
+ob_start();
+session_start();
+
+$status = session_status(); //1st measure
+
+if (isset($_POST['register'])) {
+  $name =  $_POST['name'];
+  $email =  $_POST['email'];
+  $username =  $_POST['username'];
+  $password =  $_POST['password'];
+
+  if ($name == " " || $email == " " || $username == " " || $pass == " ") {
+    echo '<script>alert(\'Kindly Fill the Form Correctly\');</script>';
+  } else if (strlen($password) < 8) {
+    echo '<script>alert(\'Password too short\');</script>';
+  } else{
+      $con = get_con();
+      $sql = "SELECT * FROM `members` WHERE Name = '$username' AND Pass = '$password';";
+
+      $result = mysqli_query($con, $sql);
+      $result_user_type = mysqli_fetch_array($result);
+      $row = mysqli_num_rows($result);
+
+      if ($row > 0) {
+          // check if user or admin and simple redirect to it
+        echo "<script>alert('Account already exsists');</script>";
+          // close connection
+        mysqli_close($con);
+      } else {
+          register($name, $email, $username, $password);
+      }
+    }
+}
+
+function register($first, $email, $username, $password)
+{
+  $con = get_con();
+  $sql = "INSERT INTO `members` (`Name`, `Email`, `Username`, `Pass`) VALUES ('$first', '$email', '$username','$password');";
+  if ($con->query($sql) === TRUE) {
+    echo "<script>alert('Account Created Successfully');</script>";
+  } 
+  else {
+    echo "<script>alert('Something went wrong.');</script>";
+  }
+  $con->close();
+}
+
+// for cheching 
+// echo $status;
+ob_end_flush();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Scorify</title>
-    <link rel="icon" type="image/x-icon" href="../imgs/vector-logo.png">
+    <title> Scorify </title>
+    <link rel="icon" type="image/x-icon" href="./imgs/vector-logo.png">
     <meta property="og:title" content="Scorify" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
@@ -13,7 +67,7 @@
     </style>
     <style data-tag="default-style-sheet">
       html {
-        font-family: Inter;
+        font-family: Fira Mono;
         font-size: 16px;
       }
 
@@ -36,82 +90,81 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;display=swap"
       data-tag="font"
     />
     <!--This is the head section-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <!-- <style> ... </style> -->
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/register.css" />
   </head>
   <body>
     <div>
-      <link href="./css/reghome.css" rel="stylesheet" />
+      <link href="./css/home.css" rel="stylesheet" />
 
-      <div class="home-container">
-        <header data-role="Header" class="home-header">
-          <span class="home-text">
-            <a href="../index.php"> Scorify </a></span>
-          <nav class="navigation-links-nav navigation-links-root-class-name12">
-            <span class="navigation-links-text"><span>
-              <a href="../index.php"> Home </a></span></span>
-            <span class="navigation-links-text1"><span>
-              <a href="./about.php"> About </a></span></span>
-            <span class="navigation-links-text2"><span>
-              <a href="./contact.php"> Contact </a></span></span>
-          </nav>
-          <div class="home-btn-group">
-            <button class="home-button button">
-              <a href="./login.php"> Login </a></button>
+      <div class="contact-container">
+        <header data-role="Header" class="contact-header">
+          <p class="contact-text">
+            <a href="../index.php"> Scorify </a></p>
+          <div class="contact-nav">
+            <nav class="navigation-links2-nav navigation-links2-root-class-name10">
+              <span class="navigation-links2-text"> 
+                <a href="../index.php"> Home </a></span>
+              <span class="navigation-links2-text1"> 
+                <a href="./src/about.php"> About </a></span>
+              <span class="navigation-links2-text2"> 
+                <a href="./src/contact.php"> Contact </a></span>
+            </nav>
           </div>
-          <div data-role="BurgerMenu" class="home-burger-menu">
-            <svg viewBox="0 0 1024 1024" class="home-icon">
+          <div class="contact-btn-group">
+            <button class="contact-login button">
+              <a href="../index.php"> Login </a></button>
+          </div>
+          <div data-role="BurgerMenu" class="contact-burger-menu">
+            <svg viewBox="0 0 1024 1024" class="contact-icon">
               <path
                 d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
               ></path>
             </svg>
           </div>
-          <div data-role="MobileMenu" class="home-mobile-menu">
-            <nav class="home-nav">
-              <div class="home-container1">
-                <span class="home-text1">
+          <div data-role="MobileMenu" class="contact-mobile-menu">
+            <div class="contact-nav1">
+              <div class="contact-container1">
+                <span class="contact-text1">
                   <a href="../index.php"> Scorify </a></span>
-                <div data-role="CloseMobileMenu" class="home-close-mobile-menu">
-                  <svg viewBox="0 0 1024 1024" class="home-icon02">
+                <div data-role="CloseMobileMenu" class="contact-menu-close">
+                  <svg viewBox="0 0 1024 1024" class="contact-icon02">
                     <path
                       d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
                     ></path>
                   </svg>
                 </div>
               </div>
-              <nav
-                class="navigation-links-nav navigation-links-root-class-name14"
-              >
-                <span class="navigation-links-text"><span>
-                  <a href="../index.php"> Home </a></span></span>
-                <span class="navigation-links-text1"><span>
-                  <a href="./about.php"> About </a></span></span>
-                <span class="navigation-links-text2"><span>
-                  <a href="./contact.php"> Contact </a></span></span>
-              </nav>
-              <button class="home-button1 button">
-                <span class="home-text2">
-                  <span> <a href="./login.php"> Login </a></span>
-                  <br />
+              <nav class="navigation-links2-nav navigation-links2-root-class-name11">
+                <span class="navigation-links2-text"> 
+                  <a href="../index.php"> Home </a> </span>
+                <span class="navigation-links2-text1"> 
+                  <a href="./src/about.php"> About </a> </span>
+                <span class="navigation-links2-text2"><span>
+                  <a href="./src/contact.php"> Contact </a></span>
                 </span>
-              </button>
-            </nav>
+              </nav>
+              <div class="contact-container2">
+                <button class="contact-button button">
+                  <a href="./src/login.php"> Login </a></button>
+              </div>
+            </div>
             <div>
               <a
                 href="https://www.twitter.com/SurturG"
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                <svg viewBox="0 0 950.8571428571428 1024" class="home-icon04">
+                <svg
+                  viewBox="0 0 950.8571428571428 1024"
+                  class="contact-icon04"
+                >
                   <path
                     d="M925.714 233.143c-25.143 36.571-56.571 69.143-92.571 95.429 0.571 8 0.571 16 0.571 24 0 244-185.714 525.143-525.143 525.143-104.571 0-201.714-30.286-283.429-82.857 14.857 1.714 29.143 2.286 44.571 2.286 86.286 0 165.714-29.143 229.143-78.857-81.143-1.714-149.143-54.857-172.571-128 11.429 1.714 22.857 2.857 34.857 2.857 16.571 0 33.143-2.286 48.571-6.286-84.571-17.143-148-91.429-148-181.143v-2.286c24.571 13.714 53.143 22.286 83.429 23.429-49.714-33.143-82.286-89.714-82.286-153.714 0-34.286 9.143-65.714 25.143-93.143 90.857 112 227.429 185.143 380.571 193.143-2.857-13.714-4.571-28-4.571-42.286 0-101.714 82.286-184.571 184.571-184.571 53.143 0 101.143 22.286 134.857 58.286 41.714-8 81.714-23.429 117.143-44.571-13.714 42.857-42.857 78.857-81.143 101.714 37.143-4 73.143-14.286 106.286-28.571z"
                   ></path>
@@ -122,7 +175,10 @@
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                <svg viewBox="0 0 877.7142857142857 1024" class="home-icon06">
+                <svg
+                  viewBox="0 0 877.7142857142857 1024"
+                  class="contact-icon06"
+                >
                   <path
                     d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"
                   ></path>
@@ -131,19 +187,69 @@
             </div>
           </div>
         </header>
-        <footer class="home-footer">
-          <span class="home-text5"> <a href="../index.php"> Scorify </a></span>
-          <span class="home-text6">
+
+        <div class="container-main">
+          <div class="container">
+          <div class="forms">
+            <div class="form login">
+            <span class="title"> Registration </span>
+              <form method="POST">
+
+                <div class="input-field">
+                  <input type="text" id="name" placeholder="Enter your name" name="name">
+                  <i class="uil uil-user"></i>
+                </div>
+
+                <div class="input-field">
+                  <input type="text" id="email" placeholder="Enter your email" name="email">
+                  <i class="uil uil-envelope"></i>
+                </div>
+
+                <div class="input-field">
+                  <input type="text" id="name" placeholder="Enter your username" name="username" >
+                  <i class="uil uil-comment"></i>
+                </div>
+
+                <div class="input-field">
+                  <input type="password" class="password" id="password" placeholder="Enter your password" name="password">
+                  <i class="uil uil-lock icon"></i>
+                  <i class="uil uil-eye-slash showHidePw"></i>
+                </div>
+
+                <div class="subbutton">
+                  <button type="submit" class="loginbutton" name="register" id="submit" value="Register"> Register </button>
+                </div>
+                </form>
+
+                <div class="login-signup">
+                  <span class="text">Already a member?
+                  <a href="./login.php" class="text signup-link"> Login </a>
+                  </span>
+                </div>
+
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <footer class="contact-footer">
+          <div class="contact-separator"></div>
+        </footer>
+        <footer class="contact-footer1">
+          <p class="contact-text2">
+            <a href="../index.php
+            "> Scorify </a></p>
+          <span class="contact-text3">
             © 2022 Pushkar Sane, All Rights Reserved.
           </span>
-          <div class="home-icon-group1">
+          <div class="contact-icon-group1">
             <a
               href="https://www.twitter.com/SurturG"
               target="_blank"
               rel="noreferrer noopener"
-              class="home-link2"
+              class="contact-link2"
             >
-              <svg viewBox="0 0 950.8571428571428 1024" class="home-icon08">
+              <svg viewBox="0 0 950.8571428571428 1024" class="contact-icon08">
                 <path
                   d="M925.714 233.143c-25.143 36.571-56.571 69.143-92.571 95.429 0.571 8 0.571 16 0.571 24 0 244-185.714 525.143-525.143 525.143-104.571 0-201.714-30.286-283.429-82.857 14.857 1.714 29.143 2.286 44.571 2.286 86.286 0 165.714-29.143 229.143-78.857-81.143-1.714-149.143-54.857-172.571-128 11.429 1.714 22.857 2.857 34.857 2.857 16.571 0 33.143-2.286 48.571-6.286-84.571-17.143-148-91.429-148-181.143v-2.286c24.571 13.714 53.143 22.286 83.429 23.429-49.714-33.143-82.286-89.714-82.286-153.714 0-34.286 9.143-65.714 25.143-93.143 90.857 112 227.429 185.143 380.571 193.143-2.857-13.714-4.571-28-4.571-42.286 0-101.714 82.286-184.571 184.571-184.571 53.143 0 101.143 22.286 134.857 58.286 41.714-8 81.714-23.429 117.143-44.571-13.714 42.857-42.857 78.857-81.143 101.714 37.143-4 73.143-14.286 106.286-28.571z"
                 ></path>
@@ -153,9 +259,9 @@
               href="https://www.instagram.com/pushkar.png"
               target="_blank"
               rel="noreferrer noopener"
-              class="home-link3"
+              class="contact-link3"
             >
-              <svg viewBox="0 0 877.7142857142857 1024" class="home-icon10">
+              <svg viewBox="0 0 877.7142857142857 1024" class="contact-icon10">
                 <path
                   d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"
                 ></path>
@@ -166,8 +272,10 @@
       </div>
     </div>
     <script
-      data-section-id="header"
+      data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
