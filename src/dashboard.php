@@ -1,3 +1,20 @@
+<?php 
+ob_start();
+include("../config/connect.php");
+$status = get_con();
+
+session_start();
+
+if (!isset($_SESSION['name'])) {
+    // redirect if not set
+    header("Location:./login.php");
+}
+
+$login_session = $_SESSION['name'];
+
+ob_end_flush();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,7 +59,6 @@
     <!--This is the head section-->
     <!-- <style> ... </style> -->
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/about.css" />
   </head>
   <body>
     <div>
@@ -51,24 +67,16 @@
       <div class="contact-container">
         <header data-role="Header" class="contact-header">
           <p class="contact-text">
-            <a href="../index.php"> Scorify </a></p>
+            <a href="./index.php"> Scorify </a></p>
           <div class="contact-nav">
-            <nav
-              class="navigation-links2-nav navigation-links2-root-class-name10"
-            >
-              <span class="navigation-links2-text"> 
-                <a href="../index.php"> Home </a></span>
+            <nav class="navigation-links2-nav navigation-links2-root-class-name10">
               <span class="navigation-links2-text1"> 
-                <a href="./about.php"> About </a></span>
-              <span class="navigation-links2-text2"> 
-                <a href="./contact.php"> Contact </a></span>
+                <p> Welcome <?php echo $login_session; ?> </p>
             </nav>
           </div>
           <div class="contact-btn-group">
-            <button class="contact-login button">
-              <a href="./login.php"> Login </a></button>
             <button class="contact-register button"> 
-              <a href="./register.php"> Register </a></button>
+              <a href="./login.php"> Signout </a></button>
           </div>
           <div data-role="BurgerMenu" class="contact-burger-menu">
             <svg viewBox="0 0 1024 1024" class="contact-icon">
@@ -81,7 +89,7 @@
             <div class="contact-nav1">
               <div class="contact-container1">
                 <span class="contact-text1">
-                  <a href="./index.php"> Scorify </a></span>
+                  <a href="../index.php"> Scorify </a></span>
                 <div data-role="CloseMobileMenu" class="contact-menu-close">
                   <svg viewBox="0 0 1024 1024" class="contact-icon02">
                     <path
@@ -90,22 +98,11 @@
                   </svg>
                 </div>
               </div>
-              <nav
-                class="navigation-links2-nav navigation-links2-root-class-name11"
-              >
-                <span class="navigation-links2-text"> 
-                  <a href="../index.php"> Home </a> </span>
-                <span class="navigation-links2-text1"> 
-                  <a href="./about.php"> About </a> </span>
-                <span class="navigation-links2-text2"><span>
-                  <a href="./contact.php"> Contact </a></span>
-                </span>
-              </nav>
+              
               <div class="contact-container2">
-                <button class="contact-button button">
-                  <a href="./login.php"> Login </a></button>
+                <p> Welcome <?php echo $login_session; ?> </p>
                 <button class="contact-button1 button">
-                  <a href="./register.php"> Register </a></button>
+                  <a href="./login.php"> Signout </a></button>
               </div>
             </div>
             <div>
@@ -141,95 +138,12 @@
           </div>
         </header>
 
-        <div class="about-features">
-          <h1 class="about-text2">
-            <span>Discover our</span>
-            <br />
-            <span>unique features</span>
-          </h1>
-          <div class="about-separator"></div>
-          <div class="about-container3">
-            <div class="about-container4">
-              <div
-                class="feature-card4-feature-card feature-card4-root-class-name1"
-              >
-                <svg viewBox="0 0 1024 1024" class="feature-card4-icon">
-                  <path
-                    d="M809.003 291.328l-297.003 171.819-297.003-171.819 275.456-157.397c4.779-2.731 9.899-4.48 15.147-5.333 9.301-1.451 18.987 0.128 27.904 5.291zM491.776 979.669c6.016 3.243 12.928 5.077 20.224 5.077 7.381 0 14.336-1.877 20.395-5.163 15.189-2.475 29.909-7.68 43.392-15.36l298.709-170.709c26.368-15.232 45.269-38.315 55.424-64.597 5.675-14.592 8.619-30.165 8.747-46.251v-341.333c0-20.395-4.821-39.723-13.397-56.917-0.939-3.029-2.219-5.973-3.883-8.832-1.963-3.371-4.267-6.357-6.912-8.96-1.323-1.835-2.731-3.669-4.139-5.419-9.813-12.203-21.845-22.528-35.456-30.507l-299.051-170.88c-26.027-15.019-55.467-19.84-83.328-15.531-15.531 2.432-30.507 7.637-44.288 15.488l-298.709 170.709c-16.341 9.429-29.824 21.888-40.149 36.267-2.56 2.56-4.864 5.547-6.784 8.832-1.664 2.901-2.987 5.888-3.925 8.96-1.707 3.456-3.243 6.955-4.608 10.496-5.632 14.635-8.576 30.208-8.704 45.995v341.632c0.043 30.293 10.581 58.197 28.331 80.128 9.813 12.203 21.845 22.528 35.456 30.507l299.051 170.88c13.824 7.979 28.587 13.099 43.605 15.445zM469.333 537.045v340.949l-277.12-158.336c-4.736-2.773-8.832-6.315-12.16-10.411-5.931-7.381-9.387-16.512-9.387-26.581v-318.379zM554.667 877.995v-340.949l298.667-172.757v318.379c-0.043 5.163-1.067 10.496-2.987 15.445-3.413 8.789-9.6 16.384-18.176 21.333z"
-                  ></path>
-                </svg>
-                <h2 class="feature-card4-text"><span>Lorem ipsum</span></h2>
-                <span class="feature-card4-text1">
-                  <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                    lorem lorem, malesuada in metus vitae, scelerisque accumsan
-                    ipsum.
-                  </span>
-                </span>
-              </div>
-              <div
-                class="feature-card4-feature-card feature-card4-root-class-name4"
-              >
-                <svg viewBox="0 0 1024 1024" class="feature-card4-icon">
-                  <path
-                    d="M809.003 291.328l-297.003 171.819-297.003-171.819 275.456-157.397c4.779-2.731 9.899-4.48 15.147-5.333 9.301-1.451 18.987 0.128 27.904 5.291zM491.776 979.669c6.016 3.243 12.928 5.077 20.224 5.077 7.381 0 14.336-1.877 20.395-5.163 15.189-2.475 29.909-7.68 43.392-15.36l298.709-170.709c26.368-15.232 45.269-38.315 55.424-64.597 5.675-14.592 8.619-30.165 8.747-46.251v-341.333c0-20.395-4.821-39.723-13.397-56.917-0.939-3.029-2.219-5.973-3.883-8.832-1.963-3.371-4.267-6.357-6.912-8.96-1.323-1.835-2.731-3.669-4.139-5.419-9.813-12.203-21.845-22.528-35.456-30.507l-299.051-170.88c-26.027-15.019-55.467-19.84-83.328-15.531-15.531 2.432-30.507 7.637-44.288 15.488l-298.709 170.709c-16.341 9.429-29.824 21.888-40.149 36.267-2.56 2.56-4.864 5.547-6.784 8.832-1.664 2.901-2.987 5.888-3.925 8.96-1.707 3.456-3.243 6.955-4.608 10.496-5.632 14.635-8.576 30.208-8.704 45.995v341.632c0.043 30.293 10.581 58.197 28.331 80.128 9.813 12.203 21.845 22.528 35.456 30.507l299.051 170.88c13.824 7.979 28.587 13.099 43.605 15.445zM469.333 537.045v340.949l-277.12-158.336c-4.736-2.773-8.832-6.315-12.16-10.411-5.931-7.381-9.387-16.512-9.387-26.581v-318.379zM554.667 877.995v-340.949l298.667-172.757v318.379c-0.043 5.163-1.067 10.496-2.987 15.445-3.413 8.789-9.6 16.384-18.176 21.333z"
-                  ></path>
-                </svg>
-                <h2 class="feature-card4-text"><span>Lorem ipsum</span></h2>
-                <span class="feature-card4-text1">
-                  <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                    lorem lorem, malesuada in metus vitae, scelerisque accumsan
-                    ipsum.
-                  </span>
-                </span>
-              </div>
-              <div
-                class="feature-card4-feature-card feature-card4-root-class-name3"
-              >
-                <svg viewBox="0 0 1024 1024" class="feature-card4-icon">
-                  <path
-                    d="M809.003 291.328l-297.003 171.819-297.003-171.819 275.456-157.397c4.779-2.731 9.899-4.48 15.147-5.333 9.301-1.451 18.987 0.128 27.904 5.291zM491.776 979.669c6.016 3.243 12.928 5.077 20.224 5.077 7.381 0 14.336-1.877 20.395-5.163 15.189-2.475 29.909-7.68 43.392-15.36l298.709-170.709c26.368-15.232 45.269-38.315 55.424-64.597 5.675-14.592 8.619-30.165 8.747-46.251v-341.333c0-20.395-4.821-39.723-13.397-56.917-0.939-3.029-2.219-5.973-3.883-8.832-1.963-3.371-4.267-6.357-6.912-8.96-1.323-1.835-2.731-3.669-4.139-5.419-9.813-12.203-21.845-22.528-35.456-30.507l-299.051-170.88c-26.027-15.019-55.467-19.84-83.328-15.531-15.531 2.432-30.507 7.637-44.288 15.488l-298.709 170.709c-16.341 9.429-29.824 21.888-40.149 36.267-2.56 2.56-4.864 5.547-6.784 8.832-1.664 2.901-2.987 5.888-3.925 8.96-1.707 3.456-3.243 6.955-4.608 10.496-5.632 14.635-8.576 30.208-8.704 45.995v341.632c0.043 30.293 10.581 58.197 28.331 80.128 9.813 12.203 21.845 22.528 35.456 30.507l299.051 170.88c13.824 7.979 28.587 13.099 43.605 15.445zM469.333 537.045v340.949l-277.12-158.336c-4.736-2.773-8.832-6.315-12.16-10.411-5.931-7.381-9.387-16.512-9.387-26.581v-318.379zM554.667 877.995v-340.949l298.667-172.757v318.379c-0.043 5.163-1.067 10.496-2.987 15.445-3.413 8.789-9.6 16.384-18.176 21.333z"
-                  ></path>
-                </svg>
-                <h2 class="feature-card4-text"><span>Lorem ipsum</span></h2>
-                <span class="feature-card4-text1">
-                  <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                    lorem lorem, malesuada in metus vitae, scelerisque accumsan
-                    ipsum.
-                  </span>
-                </span>
-              </div>
-              <div
-                class="feature-card4-feature-card feature-card4-root-class-name2"
-              >
-                <svg viewBox="0 0 1024 1024" class="feature-card4-icon">
-                  <path
-                    d="M809.003 291.328l-297.003 171.819-297.003-171.819 275.456-157.397c4.779-2.731 9.899-4.48 15.147-5.333 9.301-1.451 18.987 0.128 27.904 5.291zM491.776 979.669c6.016 3.243 12.928 5.077 20.224 5.077 7.381 0 14.336-1.877 20.395-5.163 15.189-2.475 29.909-7.68 43.392-15.36l298.709-170.709c26.368-15.232 45.269-38.315 55.424-64.597 5.675-14.592 8.619-30.165 8.747-46.251v-341.333c0-20.395-4.821-39.723-13.397-56.917-0.939-3.029-2.219-5.973-3.883-8.832-1.963-3.371-4.267-6.357-6.912-8.96-1.323-1.835-2.731-3.669-4.139-5.419-9.813-12.203-21.845-22.528-35.456-30.507l-299.051-170.88c-26.027-15.019-55.467-19.84-83.328-15.531-15.531 2.432-30.507 7.637-44.288 15.488l-298.709 170.709c-16.341 9.429-29.824 21.888-40.149 36.267-2.56 2.56-4.864 5.547-6.784 8.832-1.664 2.901-2.987 5.888-3.925 8.96-1.707 3.456-3.243 6.955-4.608 10.496-5.632 14.635-8.576 30.208-8.704 45.995v341.632c0.043 30.293 10.581 58.197 28.331 80.128 9.813 12.203 21.845 22.528 35.456 30.507l299.051 170.88c13.824 7.979 28.587 13.099 43.605 15.445zM469.333 537.045v340.949l-277.12-158.336c-4.736-2.773-8.832-6.315-12.16-10.411-5.931-7.381-9.387-16.512-9.387-26.581v-318.379zM554.667 877.995v-340.949l298.667-172.757v318.379c-0.043 5.163-1.067 10.496-2.987 15.445-3.413 8.789-9.6 16.384-18.176 21.333z"
-                  ></path>
-                </svg>
-                <h2 class="feature-card4-text"><span>Lorem ipsum</span></h2>
-                <span class="feature-card4-text1">
-                  <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                    lorem lorem, malesuada in metus vitae, scelerisque accumsan
-                    ipsum.
-                  </span>
-                </span>
-              </div>
-            </div>
-            <img
-              alt="image"
-              src="https://images.unsplash.com/photo-1471086569966-db3eebc25a59?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDIzfHxtaW5pbWFsaXNtfGVufDB8fHx8MTYyNjQ0NTY1Nw&amp;ixlib=rb-1.2.1&amp;h=1000"
-              class="about-image"
-            />
-          </div>
-        </div>
-      
+        
+
         <footer class="contact-footer">
           <div class="contact-separator"></div>
         </footer>
+
         <footer class="contact-footer1">
           <p class="contact-text2">
             <a href="../index.php"> Scorify </a></p>
@@ -270,6 +184,6 @@
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="./src/js/main.js"></script>
   </body>
 </html>
