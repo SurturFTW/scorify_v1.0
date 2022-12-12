@@ -19,7 +19,7 @@ ob_end_flush();
 <html lang="en">
   <head>
     <title> Scorify </title>
-    <link rel="icon" type="image/x-icon" href="./imgs/vector-logo.png">
+    <link rel="icon" type="image/x-icon" href="../imgs/vector-logo.png">
     <meta property="og:title" content="Scorify" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
