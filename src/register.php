@@ -56,7 +56,7 @@ ob_end_flush();
 <html lang="en">
   <head>
     <title> Scorify </title>
-    <link rel="icon" type="image/x-icon" href="./imgs/vector-logo.png">
+    <link rel="icon" type="image/x-icon" href="../imgs/vector-logo.png">
     <meta property="og:title" content="Scorify" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
@@ -102,7 +102,6 @@ ob_end_flush();
   <body>
     <div>
       <link href="./css/home.css" rel="stylesheet" />
-
       <div class="contact-container">
         <header data-role="Header" class="contact-header">
           <p class="contact-text">
@@ -119,7 +118,7 @@ ob_end_flush();
           </div>
           <div class="contact-btn-group">
             <button class="contact-login button">
-              <a href="../index.php"> Login </a></button>
+              <a href="./login.php"> Login </a></button>
           </div>
           <div data-role="BurgerMenu" class="contact-burger-menu">
             <svg viewBox="0 0 1024 1024" class="contact-icon">
@@ -152,7 +151,7 @@ ob_end_flush();
               </nav>
               <div class="contact-container2">
                 <button class="contact-button button">
-                  <a href="./src/login.php"> Login </a></button>
+                  <a href="./login.php"> Login </a></button>
               </div>
             </div>
             <div>
@@ -193,6 +192,7 @@ ob_end_flush();
           <div class="forms">
             <div class="form login">
             <span class="title"> Registration </span>
+
               <form method="POST">
 
                 <div class="input-field">
@@ -223,7 +223,7 @@ ob_end_flush();
 
                 <div class="login-signup">
                   <span class="text">Already a member?
-                  <a href="./login.php" class="text signup-link"> Login </a>
+                  <a href="./login.php" class="text signup-link"> Login Here</a>
                   </span>
                 </div>
 
@@ -277,5 +277,6 @@ ob_end_flush();
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/login.js"></script>
   </body>
 </html>

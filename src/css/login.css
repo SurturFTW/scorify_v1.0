@@ -1,0 +1,188 @@
+.button {
+    color: var(--dl-color-gray-black);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-color: var(--dl-color-gray-black);
+    border-width: 1px;
+    border-radius: 4px;
+    background-color: var(--dl-color-gray-white);
+}
+.input {
+    color: var(--dl-color-gray-black);
+    cursor: auto;
+    padding: 0.5rem 1rem;
+    border-color: var(--dl-color-gray-black);
+    border-width: 1px;
+    border-radius: 4px;
+    background-color: var(--dl-color-gray-white);
+}
+.textarea {
+    color: var(--dl-color-gray-black);
+    cursor: auto;
+    padding: 0.5rem;
+    border-color: var(--dl-color-gray-black);
+    border-width: 1px;
+    border-radius: 4px;
+    background-color: var(--dl-color-gray-white);
+}
+.list {
+    width: 100%;
+    margin: 1em 0px 1em 0px;
+    display: block;
+    padding: 0px 0px 0px 1.5rem;
+    list-style-type: none;
+    list-style-position: outside;
+}
+.list-item {
+    display: list-item;
+}
+.teleport-show {
+    display: flex !important;
+    transform: none !important;
+}
+.Content {
+    font-size: 16px;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 1.15;
+    text-transform: none;
+    text-decoration: none;
+}
+.Heading {
+    font-size: 32px;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: none;
+    text-decoration: none;
+}
+  
+.container-main{
+    display: flex;
+    height: 100%;
+    padding: 2rem;
+    align-items: center;
+}
+  
+.container{
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 100px 20px;
+    border-top: 5px solid black;
+  }
+  
+.container .forms{
+    display: flex;
+    align-items: center;
+    height: 440px;
+    width: 200%;
+    transition: height 0.2s ease;
+}
+  
+.container .form{
+    width: 50%;
+    padding: 30px;
+    background-color: #fff;
+    transition: margin-left 0.18s ease;
+}
+  
+.container .form .title{
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+}
+  
+.form .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color: black;
+    border-radius: 25px;
+}
+  
+.form .input-field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+  
+.input-field input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+  
+.input-field input:is(:focus){
+    border-bottom-color: black;
+}
+  
+.input-field i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+    transition: all 0.2s ease;
+}
+  
+.input-field input:is(:focus) ~ i{
+    color: black;
+}
+  
+.input-field i.icon{
+    left: 0;
+}
+  
+.input-field i.showHidePw{
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+  
+.form .text{
+    color: #333;
+    font-size: 16px;
+}
+  
+.form a.text{
+    color: red;
+    text-decoration: none;
+}
+.form a:hover{
+    text-decoration: underline;
+}
+  
+.form .subbutton{
+    font-size: 18px;
+    transition: 0.3s;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 35px;
+    padding: 10px;
+}
+  
+.subbutton:hover{
+    transform: scale(1.05);
+}
+  
+.form .login-signup{
+    margin-top: 30px;
+    text-align: center;
+}

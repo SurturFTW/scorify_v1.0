@@ -1,64 +1,72 @@
+.container-main{
+  display: flex;
+  height: 100%;
+  padding: 2rem;
+  align-items: center;
+}
+  
 .container{
-    position: relative;
-    width: 120%;
-    padding: 25px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin: 10px auto 20px;
-    border-top: 5px solid black;
-  }
+  position: relative;
+  max-width: 100%;
+  width: 500%;
+  padding: 25px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 10px auto 20px;
+  border-top: 5px solid black;
+}
   
 .container .forms{
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 200%;
-    transition: height 0.2s ease;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 200%;
+  transition: height 0.2s ease;
 }
   
 .container .form{
-    width: 50%;
-    padding: 55px;
-    background-color: #fff;
+  width: 50%;
+  padding: 55px;
+  background-color: #fff;
 }
   
 .container .form .title{
-    position: relative;
-    font-size: 27px;
-    font-weight: 600;
+  position: relative;
+  font-size: 27px;
+  font-weight: 600;
 }
   
 .form .title::before{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    background-color: black;
-    border-radius: 25px;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background-color: black;
+  border-radius: 25px;
 }
   
 .form .input-field{
-    position: relative;
-    height: 50px;
-    width: 100%;
-    margin-top: 30px;
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 30px;
 }
   
 .input-field input{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding: 0 35px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    border-bottom: 2px solid #ccc;
-    border-top: 2px solid transparent;
-    transition: all 0.2s ease;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 0 35px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-bottom: 2px solid #ccc;
+  border-top: 2px solid transparent;
+  transition: all 0.2s ease;
 }
   
 .input-field input:is(:focus){
@@ -66,12 +74,12 @@
 }
   
 .input-field i{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
-    font-size: 23px;
-    transition: all 0.2s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 23px;
+  transition: all 0.2s ease;
 }
   
 .input-field input:is(:focus) ~ i{
@@ -79,47 +87,44 @@
 }
   
 .input-field i.icon{
-    left: 0;
+  left: 0;
 }
   
 .input-field i.showHidePw{
-    right: 0;
-    cursor: pointer;
-    padding: 5px;
+  right: 0;
+  cursor: pointer;
+  padding: 5px;
 }
   
 .form .text{
-    color: #333;
-    font-size: 16px;
+  color: #333;
+  font-size: 16px;
 }
   
 .form a.text{
-    color: rebeccapurple;
-    text-decoration: none;
+  color: rebeccapurple;
+  text-decoration: none;
 }
 .form a:hover{
-    text-decoration: underline;
+  text-decoration: underline;
 }
   
 .form .subbutton{
-    background: white;
-    font-size: 18px;
-    font-style: normal;
-    transition: 0.3s;
-    font-family: Fira Mono;
-    font-weight: 800;
-    border: 1px solid black;
-    text-align: center;
-    border-radius: 20px;
-    margin-top: 35px;
-    padding: 10px;
+  font-size: 18px;
+  transition: 0.3s;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 35px;
+  padding: 10px;
 }
   
 .subbutton:hover{
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
   
 .form .login-signup{
-    margin-top: 30px;
-    text-align: center;
+  margin-top: 30px;
+  text-align: center;
 }
+  

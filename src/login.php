@@ -1,8 +1,57 @@
+<?php 
+ob_start();
+include("../config/connect.php");
+$status = get_con();
+
+session_start();
+$status = session_status(); //1st measure
+if ($status == PHP_SESSION_ACTIVE) {
+  //There is  active session
+  session_destroy();
+}
+
+// if session is already running, it destroys previous session 
+// and starts a new if redirected to this page
+session_start();
+
+if (isset($_POST['login'])) {
+  $username =  $_POST['username'];
+  $password = $_POST['password'];
+
+  $con = get_con();
+  $sql = "SELECT * FROM `members` WHERE Username = '$username' AND Pass = '$password';";
+  $result = mysqli_query($con, $sql);
+  $result_user_type = mysqli_fetch_array($result);
+  
+  $row = mysqli_num_rows($result);
+
+  if ($row > 0) {
+    header("Location:./dashboard.php");
+    //session set
+    $_SESSION['name'] = $result_user_type['Username'];
+  }
+  else{
+    echo"
+    <script>
+      alert('Invalid username or password.');
+    </script>
+    ";
+  }
+  // close connection
+  mysqli_close($con);
+} 
+
+  // login block ends here  
+  // for cheching 
+  // echo $status;
+  ob_end_flush();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title> Scorify </title>
-    <link rel="icon" type="image/x-icon" href="./imgs/vector-logo.png">
+    <link rel="icon" type="image/x-icon" href="../imgs/vector-logo.png">
     <meta property="og:title" content="Scorify" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
@@ -40,34 +89,36 @@
       data-tag="font"
     />
     <!--This is the head section-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <!-- <style> ... </style> -->
-    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/login.css" />
   </head>
   <body>
     <div>
-      <link href="./src/css/home.css" rel="stylesheet" />
+      <link href="./css/home.css" rel="stylesheet" />
 
       <div class="contact-container">
         <header data-role="Header" class="contact-header">
           <p class="contact-text">
-            <a href="./index.php"> Scorify </a></p>
+            <a href="../index.php"> Scorify </a></p>
           <div class="contact-nav">
             <nav
               class="navigation-links2-nav navigation-links2-root-class-name10"
             >
               <span class="navigation-links2-text"> 
-                <a href="./index.php"> Home </a></span>
+                <a href="../index.php"> Home </a></span>
               <span class="navigation-links2-text1"> 
-                <a href="./src/about.php"> About </a></span>
+                <a href="./about.php"> About </a></span>
               <span class="navigation-links2-text2"> 
-                <a href="./src/contact.php"> Contact </a></span>
+                <a href="./contact.php"> Contact </a></span>
             </nav>
           </div>
           <div class="contact-btn-group">
             <button class="contact-login button">
-              <a href="./src/login.php"> Login </a></button>
+              <a href="./login.php"> Login </a></button>
             <button class="contact-register button"> 
-              <a href="./src/register.php"> Register </a></button>
+              <a href="./register.php"> Register </a></button>
           </div>
           <div data-role="BurgerMenu" class="contact-burger-menu">
             <svg viewBox="0 0 1024 1024" class="contact-icon">
@@ -80,7 +131,7 @@
             <div class="contact-nav1">
               <div class="contact-container1">
                 <span class="contact-text1">
-                  <a href="./index.php"> Scorify </a></span>
+                  <a href="../index.php"> Scorify </a></span>
                 <div data-role="CloseMobileMenu" class="contact-menu-close">
                   <svg viewBox="0 0 1024 1024" class="contact-icon02">
                     <path
@@ -89,15 +140,13 @@
                   </svg>
                 </div>
               </div>
-              <nav
-                class="navigation-links2-nav navigation-links2-root-class-name11"
-              >
+              <nav class="navigation-links2-nav navigation-links2-root-class-name11">
                 <span class="navigation-links2-text"> 
-                  <a href="./index.php"> Home </a> </span>
+                  <a href="../index.php"> Home </a> </span>
                 <span class="navigation-links2-text1"> 
-                  <a href="./src/about.php"> About </a> </span>
+                  <a href="./about.php"> About </a> </span>
                 <span class="navigation-links2-text2"><span>
-                  <a href="./src/contact.php"> Contact </a></span>
+                  <a href="./contact.php"> Contact </a></span>
                 </span>
               </nav>
               <div class="contact-container2">
@@ -139,12 +188,51 @@
             </div>
           </div>
         </header>
+
+        
+        <div class="container">
+          <div class="forms">
+            <div class="form login">
+                <span class="title"> Login </span>
+
+                <form method="POST">
+                    <div class="input-field">
+                        <input type="text" id="name" placeholder="Enter your username" name="username" >
+                        <i class="uil uil-user"></i>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="password" class="password" id="password" placeholder="Enter your password" name="password" >
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="login-signup">
+                      <span class="text"> <a href="./forgotpass.php"> Forgot Password? </a>
+                        <a href="./register.php" class="text signup-link"> Click here to reset</a>
+                      </span>
+                    </div>
+
+                    <div class="subbutton">
+                      <!-- <input type="submit" class="contact-button1 button" name="login" id="submit" value="Login"> -->
+                      <button type="submit" class="loginbutton" name="login" id="submit" value="login"> Login </button>
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                  <a href="./register.php" class="text signup-link">Register Now</a>
+                    </span>
+                </div>
+            </div>
+          </div>
+        </div>
+
         <footer class="contact-footer">
           <div class="contact-separator"></div>
         </footer>
         <footer class="contact-footer1">
           <p class="contact-text2">
-            <a href="./index.php"> Scorify </a></p>
+            <a href="../index.php"> Scorify </a></p>
           <span class="contact-text3">
             © 2022 Pushkar Sane, All Rights Reserved.
           </span>
@@ -181,5 +269,8 @@
       data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
