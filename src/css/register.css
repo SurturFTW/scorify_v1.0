@@ -1,130 +1,163 @@
-.container-main{
-  display: flex;
-  height: 100%;
-  padding: 2rem;
-  align-items: center;
+/* own scripts */
+/* sign up */
+/* contains all user syling */
+/* hover underline */
+
+.on-hover {
+    transition: 0.3s;
 }
-  
-.container{
-  position: relative;
-  max-width: 100%;
-  width: 500%;
-  padding: 25px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  margin: 10px auto 20px;
-  border-top: 5px solid black;
+
+.on-hover:hover {
+    background-color: var(--dl-color-gray-);
+    transition: 0.3s;
 }
-  
-.container .forms{
-  display: flex;
-  align-items: center;
-  height: 100%;
-  width: 200%;
-  transition: height 0.2s ease;
+
+.myFont {
+    font-family: dot !important;
 }
-  
-.container .form{
-  width: 50%;
-  padding: 55px;
-  background-color: #fff;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 20rem;
+    align-content: center;
 }
-  
-.container .form .title{
-  position: relative;
-  font-size: 27px;
-  font-weight: 600;
+
+/* login contet */
+.height-set {
+    height: 60vh !important;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-  
-.form .title::before{
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 30px;
-  background-color: black;
-  border-radius: 25px;
+
+#pass-msg,
+#username-msg,
+#email-msg {
+    width: 96%;
+    display: none;
+    position: relative;
+    color: red;
+    font-family: 'Fira Mono';
+    font-size: 1rem;
 }
-  
-.form .input-field{
-  position: relative;
-  height: 50px;
-  width: 100%;
-  margin-top: 30px;
+
+.input-contain {
+    position: relative;
 }
-  
-.input-field input{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  padding: 0 35px;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  border-bottom: 2px solid #ccc;
-  border-top: 2px solid transparent;
-  transition: all 0.2s ease;
+
+input {
+    height: 2.7rem;
+    width: 20rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    font-size: 1rem;
 }
-  
-.input-field input:is(:focus){
-    border-bottom-color: black;
+
+.placeholder-text {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 3px solid transparent;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
 }
-  
-.input-field i{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
-  font-size: 23px;
-  transition: all 0.2s ease;
+
+.placeholder-text {
+    pointer-events: none;
 }
-  
-.input-field input:is(:focus) ~ i{
+
+.text {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+    background-color: transparent;
     color: black;
 }
-  
-.input-field i.icon{
-  left: 0;
+
+input,
+.placeholder-text {
+    padding: 0 1.2rem;
 }
-  
-.input-field i.showHidePw{
-  right: 0;
-  cursor: pointer;
-  padding: 5px;
+
+.placeholder-text .text {
+    transition: 0.2s;
 }
-  
-.form .text{
-  color: #333;
-  font-size: 16px;
+
+input:focus+.placeholder-text .text {
+    outline: none;
+    border-color: rgb(26, 135, 179);
+    color: rgb(137, 137, 137);
+    font-size: 0.85rem;
+    transform: translate(0, -150%);
 }
-  
-.form a.text{
-  color: rebeccapurple;
-  text-decoration: none;
+
+.placeholder-text .text {
+    background-color: white;
+    font-size: 0.9rem;
+    color: black;
+    transform: translate(0, -140%);
+    border-color: rgb(26, 135, 179);
+    color: rgb(0, 0, 0);
 }
-.form a:hover{
-  text-decoration: underline;
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 96%;
+    align-items: center;
 }
-  
-.form .subbutton{
-  font-size: 18px;
-  transition: 0.3s;
-  border: 1px solid black;
-  text-align: center;
-  border-radius: 20px;
-  margin-top: 35px;
-  padding: 10px;
+
+.head p {
+    color: red;
 }
-  
-.subbutton:hover{
-  transform: scale(1.02);
+
+.sub {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 96%;
 }
-  
-.form .login-signup{
-  margin-top: 30px;
-  text-align: center;
+
+.first_fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2rem;
+    width: auto;
+    flex-wrap: wrap;
 }
-  
+
+#login,
+#signup,
+#reset{
+    transition: 0.3s ease-in-out;
+}
+
+#signup:hover {
+    background-color: black; 
+    color: white;
+}
+
+#login:hover,
+#reset:hover {
+    background-color: aqua;
+}
+
+.sub a:hover {
+    color: aqua !important;
+}
+
+@media screen and (max-width: 400px) {
+    input {
+        width: 17rem;
+    }
+}
+

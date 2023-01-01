@@ -1,0 +1,183 @@
+body {
+	background: white;
+}
+
+.button {
+	background-color: #e7e7e7;
+	color: black;
+	border: none;
+	color: black;
+	padding: 10px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+	margin: 4px 4px;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+#p1Retd,
+#p2Retd,
+#helpButton,
+#updP1Score,
+#updP2Score,
+#p1Ovrd,
+#p2Ovrd,
+#softMenu {
+	background-color: #e7e7e7;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+#p1Retd:hover,
+#p2Retd:hover,
+#helpButton:hover,
+#softMenu:hover,
+#updP1Score:hover,
+#updP2Score:hover,
+#p1Ovrd:hover,
+#p2Ovrd:hover  {
+	background-color: #4CAF50;
+	color: white;
+	-webkit-animation-name: example;
+	/* Safari 4.0 - 8.0 */
+	-webkit-animation-duration: 4s;
+	/* Safari 4.0 - 8.0 */
+	animation-name: example;
+	animation-duration: 2s;
+}
+
+.button:hover {
+	background-color: #4CAF50;
+	color: white;
+	-webkit-animation-name: example;
+	/* Safari 4.0 - 8.0 */
+	-webkit-animation-duration: 4s;
+	/* Safari 4.0 - 8.0 */
+	animation-name: example;
+	animation-duration: 2s;
+}
+
+@keyframes example {
+	from {
+		background-color: #4CAF50;
+	}
+	to {
+		background-color: blue;
+	}
+}
+
+.table1 {
+	border-collapse: collapse;
+	width: 100%;
+	border: 2px solid #ddd;
+}
+
+.scoringTool {
+	border-collapse: collapse;
+}
+
+.table1 th,
+td {
+	text-align: left;
+	padding: 8px;
+}
+
+.table1 tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+h2 {
+	background: linear-gradient(0deg, #138808 23%, #ffffff 33%, #ffffff 66%, #FF9933 26%);
+	background-color:#000080;
+	border: 5px dotted blue;
+	border-collapse: collapse;
+	color: #000080;
+	margin: auto;
+	text-align: center;
+}
+
+#totScore {
+	font-size: 30px;
+}
+
+#sboard {
+	font-size: 30px;
+}
+
+.scoreBoard {
+	background-color: teal;
+	border-collapse: collapse;
+	color: white;
+	table-layout: auto;
+	width: 100%;
+}
+
+#player2Name,
+#player1Name,
+#targetScore,
+#p1Score,
+#p2Score,
+#targetOvers {
+	height: 20px;
+	width: 60px;
+	background-color: white;
+	border-radius: 5px;
+	background-color: lightblue;
+}
+
+#player1,
+#player2 {
+	font-size: 20px;
+}
+
+input[type=text],
+[type=number] {
+	padding: 0;
+	height: 30px;
+	width: 50px;
+	position: relative;
+	text-align: center;
+	outline: none;
+	border: 1px solid #cdcdcd;
+	border-color: rgba(0, 0, 0, .15);
+	background-color: lightblue;
+	font-size: 16px;
+	border-radius: 30px;
+}
+
+#notify {
+	color: navy;
+	font-size: 15px;
+	padding-left: 10px;
+	background-color: yellow;
+}
+
+.table2 {
+	border-collapse: collapse;
+	table-layout: auto;
+	width: 100%;
+}
+
+#batsMensScoreTable {
+	table-layout: auto;
+	font-size: 16px;
+	border-radius: 30px;
+}
+
+#playerScoretbl,
+#settingsTbl{
+	table-layout: auto;
+	width: 100%;
+	border-collapse:collapse;
+
+}
+
+#playerOverrideDiv,#playerOverrideDiv{
+	width:200px;
+}
+
+#BatsMenStore tr:nth-child(even) {background: #CCC; font-weight:bold;}
+#BatsMenStore tr:nth-child(odd) {background: lightgreen;font-weight:bold;}

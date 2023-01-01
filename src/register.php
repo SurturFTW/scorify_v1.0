@@ -5,19 +5,18 @@ session_start();
 
 $status = session_status(); //1st measure
 
-if (isset($_POST['register'])) {
-  $name =  $_POST['name'];
+if (isset($_POST['Register'])) {
   $email =  $_POST['email'];
   $username =  $_POST['username'];
   $password =  $_POST['password'];
 
-  if ($name == " " || $email == " " || $username == " " || $pass == " ") {
+  if ($email == " " || $username == " " || $password == " ") {
     echo '<script>alert(\'Kindly Fill the Form Correctly\');</script>';
   } else if (strlen($password) < 8) {
     echo '<script>alert(\'Password too short\');</script>';
   } else{
       $con = get_con();
-      $sql = "SELECT * FROM `members` WHERE Name = '$username' AND Pass = '$password';";
+      $sql = "SELECT * FROM `members` WHERE Username = '$username' AND Pass = '$password';";
 
       $result = mysqli_query($con, $sql);
       $result_user_type = mysqli_fetch_array($result);
@@ -29,15 +28,15 @@ if (isset($_POST['register'])) {
           // close connection
         mysqli_close($con);
       } else {
-          register($name, $email, $username, $password);
+          register($email, $username, $password);
       }
     }
 }
 
-function register($first, $email, $username, $password)
+function register($email, $username, $password)
 {
   $con = get_con();
-  $sql = "INSERT INTO `members` (`Name`, `Email`, `Username`, `Pass`) VALUES ('$first', '$email', '$username','$password');";
+  $sql = "INSERT INTO `members` ( `Email`, `Username`, `Pass`) VALUES ('$email', '$username','$password');";
   if ($con->query($sql) === TRUE) {
     echo "<script>alert('Account Created Successfully');</script>";
   } 
@@ -111,9 +110,9 @@ ob_end_flush();
               <span class="navigation-links2-text"> 
                 <a href="../index.php"> Home </a></span>
               <span class="navigation-links2-text1"> 
-                <a href="./src/about.php"> About </a></span>
+                <a href="./about.php"> About </a></span>
               <span class="navigation-links2-text2"> 
-                <a href="./src/contact.php"> Contact </a></span>
+                <a href="./contact.php"> Contact </a></span>
             </nav>
           </div>
           <div class="contact-btn-group">
@@ -144,9 +143,9 @@ ob_end_flush();
                 <span class="navigation-links2-text"> 
                   <a href="../index.php"> Home </a> </span>
                 <span class="navigation-links2-text1"> 
-                  <a href="./src/about.php"> About </a> </span>
+                  <a href="./about.php"> About </a> </span>
                 <span class="navigation-links2-text2"><span>
-                  <a href="./src/contact.php"> Contact </a></span>
+                  <a href="./contact.php"> Contact </a></span>
                 </span>
               </nav>
               <div class="contact-container2">
@@ -187,58 +186,50 @@ ob_end_flush();
           </div>
         </header>
 
-        <div class="container-main">
-          <div class="container">
-          <div class="forms">
-            <div class="form login">
-            <span class="title"> Registration </span>
-
-              <form method="POST">
-
-                <div class="input-field">
-                  <input type="text" id="name" placeholder="Enter your name" name="name">
-                  <i class="uil uil-user"></i>
+          <div class="height-set">
+            <form class="form" method="POST">
+              <div class="head">
+                <h1>Register</h1>
+              </div>
+              <p id="username-msg"></p>
+                <div class="input-contain">
+                  <input type="text" name="username" id="username" autocomplete="on">
+                    <label class="placeholder-text" for="username" id="placeholder-fname">
+                      <div class="text">Username</div>
+                    </label>
                 </div>
 
-                <div class="input-field">
-                  <input type="text" id="email" placeholder="Enter your email" name="email">
-                  <i class="uil uil-envelope"></i>
+              <p id="email-msg"></p>
+                <div class="input-contain">
+                  <input type="email" name="email" id="email" autocomplete="on">
+                    <label class="placeholder-text" for="email" id="placeholder-fname">
+                      <div class="text">Email</div>
+                    </label>
                 </div>
 
-                <div class="input-field">
-                  <input type="text" id="name" placeholder="Enter your username" name="username" >
-                  <i class="uil uil-comment"></i>
+              <p id="pass-msg"></p>
+                <div class="input-contain">
+                  <input type="password" name="password" id="password" autocomplete="on">
+                    <label class="placeholder-text" for="password" id="placeholder-fname">
+                      <div class="text">Password</div>
+                    </label>
                 </div>
 
-                <div class="input-field">
-                  <input type="password" class="password" id="password" placeholder="Enter your password" name="password">
-                  <i class="uil uil-lock icon"></i>
-                  <i class="uil uil-eye-slash showHidePw"></i>
-                </div>
-
-                <div class="subbutton">
-                  <button type="submit" class="loginbutton" name="register" id="submit" value="Register"> Register </button>
-                </div>
-                </form>
-
-                <div class="login-signup">
-                  <span class="text">Already a member?
-                  <a href="./login.php" class="text signup-link"> Login Here</a>
-                  </span>
-                </div>
-
-            </div>
+              <div class="div">
+                <input id="signup" type="submit" name="Register" value="Register">
+              </div>
+              <div class="sub">
+                <p> <a href="#"> Forgot Password? </a></p>
+                <p> <a href="./login.php"> Sign In </a></p>
+              </div>
           </div>
-        </div>
-        </div>
 
         <footer class="contact-footer">
           <div class="contact-separator"></div>
         </footer>
         <footer class="contact-footer1">
           <p class="contact-text2">
-            <a href="../index.php
-            "> Scorify </a></p>
+            <a href="../index.php"> Scorify </a></p>
           <span class="contact-text3">
             © 2022 Pushkar Sane, All Rights Reserved.
           </span>
@@ -271,12 +262,7 @@ ob_end_flush();
         </footer>
       </div>
     </div>
-    <script
-      data-section-id="navbar"
-      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-    <script src="./js/main.js"></script>
-    <script src="./js/login.js"></script>
+
+    <script data-section-id="navbar" src="https://unpkg.com/@teleporthq/teleport-custom-scripts"> </script>
   </body>
 </html>

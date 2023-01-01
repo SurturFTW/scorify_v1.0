@@ -14,7 +14,7 @@ if ($status == PHP_SESSION_ACTIVE) {
 // and starts a new if redirected to this page
 session_start();
 
-if (isset($_POST['login'])) {
+if (isset($_POST['Login'])) {
   $username =  $_POST['username'];
   $password = $_POST['password'];
 
@@ -89,10 +89,9 @@ if (isset($_POST['login'])) {
       data-tag="font"
     />
     <!--This is the head section-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <!-- <style> ... </style> -->
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/register.css" />
   </head>
   <body>
     <div>
@@ -189,43 +188,36 @@ if (isset($_POST['login'])) {
           </div>
         </header>
 
-        
-        <div class="container">
-          <div class="forms">
-            <div class="form login">
-                <span class="title"> Login </span>
-
-                <form method="POST">
-                    <div class="input-field">
-                        <input type="text" id="name" placeholder="Enter your username" name="username" >
-                        <i class="uil uil-user"></i>
-                    </div>
-
-                    <div class="input-field">
-                        <input type="password" class="password" id="password" placeholder="Enter your password" name="password" >
-                        <i class="uil uil-lock icon"></i>
-                        <i class="uil uil-eye-slash showHidePw"></i>
-                    </div>
-
-                    <div class="login-signup">
-                      <span class="text"> <a href="./forgotpass.php"> Forgot Password? </a>
-                        <a href="./register.php" class="text signup-link"> Click here to reset</a>
-                      </span>
-                    </div>
-
-                    <div class="subbutton">
-                      <!-- <input type="submit" class="contact-button1 button" name="login" id="submit" value="Login"> -->
-                      <button type="submit" class="loginbutton" name="login" id="submit" value="login"> Login </button>
-                    </div>
-                </form>
-
-                <div class="login-signup">
-                  <a href="./register.php" class="text signup-link">Register Now</a>
-                    </span>
+        <div class="height-set">
+            <form class="form" method="POST">
+              <div class="head">
+                <h1>Login</h1>
+              </div>
+              <p id="username-msg"></p>
+                <div class="input-contain">
+                  <input type="text" name="username" id="username" autocomplete="on">
+                    <label class="placeholder-text" for="username" id="placeholder-fname">
+                      <div class="text">Username</div>
+                    </label>
                 </div>
-            </div>
+
+
+              <p id="pass-msg"></p>
+                <div class="input-contain">
+                  <input type="password" name="password" id="password" autocomplete="on">
+                    <label class="placeholder-text" for="password" id="placeholder-fname">
+                      <div class="text">Password</div>
+                    </label>
+                </div>
+
+              <div class="div">
+                <input id="signup" type="submit" name="Login" value="Login">
+              </div>
+              <div class="sub">
+                <p> Dont't Have An Account? </p>
+                <p> <a href="./register.php"> Sign Up! </a></p>
+              </div>
           </div>
-        </div>
 
         <footer class="contact-footer">
           <div class="contact-separator"></div>
@@ -269,8 +261,6 @@ if (isset($_POST['login'])) {
       data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-    <script src="./js/login.js"></script>
-    <script src="./js/main.js"></script>
+    
   </body>
 </html>

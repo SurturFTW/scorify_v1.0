@@ -140,31 +140,7 @@ ob_end_flush();
           </div>
         </header>
 
-        <div class="container-home">
-          <br>
-          <br>
-          <br>
-          <div class="main">
-            <div class="side">
-              <h1 class="education-title">Dashboard</h1>
-              <img class="img" src="../imgs/anderson.gif" alt="oak">
-            </div>
-            <div class="container">
-              <a href="./match.php">
-              <div class="card">
-                <img src="../imgs/book.svg" alt="match">
-                <p> Create A Match </p>
-              </div>
-              </a>
-              <a href="./scorecard.php">
-                <div class="card">
-                  <img src="../imgs/ball.svg" alt="scorecard">
-                  <p> View Scorecard </p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
+        
         
         <footer class="contact-footer">
           <div class="contact-separator"></div>

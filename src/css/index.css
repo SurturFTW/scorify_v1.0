@@ -318,7 +318,7 @@
   font-size: 0.75rem;
   font-family: Fira Mono;
   border-color: black;
-  border-radius: var(--dl-radius-radius-radius4);
+  border-radius: 20px;
 }
 .home-button4 {
   font-size: 0.75rem;
