@@ -123,7 +123,7 @@ ob_end_flush();
         <div class="contact-separator"></div>
     </footer>
 
-	<div class="footer">
+	<div class="d-flex">
     <footer class="contact-footer1">
         <p class="contact-text2">
 			<a href="../index.php"> Scorify </a></p>
