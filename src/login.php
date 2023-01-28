@@ -26,7 +26,7 @@ if (isset($_POST['Login'])) {
   $row = mysqli_num_rows($result);
 
   if ($row > 0) {
-    header("Location:./dashboard.php");
+    header("Location:./live/dashboard.php");
     //session set
     $_SESSION['name'] = $result_user_type['Username'];
   }
@@ -214,8 +214,8 @@ if (isset($_POST['Login'])) {
                 <input id="signup" type="submit" name="Login" value="Login">
               </div>
               <div class="sub">
-                <p> Dont't Have An Account? </p>
-                <p> <a href="./register.php"> Sign Up! </a></p>
+                <p> <a href="#"> Forgot Password? </a></p>
+                <p> <a href="./register.php"> Sign Up </a></p>
               </div>
           </div>
 

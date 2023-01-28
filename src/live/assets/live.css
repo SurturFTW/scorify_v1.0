@@ -1,0 +1,109 @@
+@import url("../../css/bootstrap.min.css");
+
+/* @font-face {
+	src: url(Ubuntu-R.ttf);
+	font-family: Fira Mono;
+} */
+
+body {
+	font-family: Fira Mono;
+}
+
+.btn-purple {
+	color: #fff;
+	background-color: purple;
+	border-color: purple;
+}
+
+.btn-purple:hover {
+	color: #fff;
+	background-color: rgb(80, 9, 80);
+	border-color: purple;
+}
+
+.btn-check:focus + .btn-purple,
+.btn-purple:focus {
+	color: #fff;
+	background-color: purple;
+	border-color: purple;
+	box-shadow: 0 0 0 0.25rem rgba(206, 54, 186, 0.5);
+}
+
+.btn-check:active + .btn-purple,
+.btn-check:checked + .btn-purple,
+.btn-purple.active,
+.btn-purple:active,
+.show > .btn-purple.dropdown-toggle {
+	color: #fff;
+	background-color: purple;
+	border-color: #0a53be;
+}
+
+.btn-check:active + .btn-purple:focus,
+.btn-check:checked + .btn-purple:focus,
+.btn-purple.active:focus,
+.btn-purple:active:focus,
+.show > .btn-purple.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.25rem rgba(206, 54, 186, 0.5);
+}
+
+.btn-purple.disabled,
+.btn-purple:disabled {
+	color: #fff;
+	background-color: purple;
+	border-color: purple;
+}
+
+.btn-outline-purple {
+	color: purple;
+	border-color: purple;
+}
+
+.btn-outline-purple:hover {
+	color: #fff;
+	background-color: rgb(80, 9, 80);
+	border-color: purple;
+}
+
+.btn-check:focus + .btn-outline-purple,
+.btn-outline-purple:focus {
+	box-shadow: 0 0 0 0.25rem rgba(206, 54, 186, 0.5);
+}
+
+.btn-check:active + .btn-outline-purple,
+.btn-check:checked + .btn-outline-purple,
+.btn-outline-purple.active,
+.btn-outline-purple.dropdown-toggle.show,
+.btn-outline-purple:active {
+	color: #fff;
+	background-color: purple;
+	border-color: purple;
+}
+
+.btn-check:active + .btn-outline-purple:focus,
+.btn-check:checked + .btn-outline-purple:focus,
+.btn-outline-purple.active:focus,
+.btn-outline-purple.dropdown-toggle.show:focus,
+.btn-outline-purple:active:focus {
+	box-shadow: 0 0 0 0.25rem rgba(206, 54, 186, 0.5);
+}
+
+.btn-outline-purple.disabled,
+.btn-outline-purple:disabled {
+	color: purple;
+	background-color: transparent;
+}
+
+.btn-purple {
+	background-color: purple;
+	border-color: purple;
+	color: white;
+}
+
+.xy-center {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 7vh;
+	margin-bottom: 10vh;
+	text-align: center;
+}
